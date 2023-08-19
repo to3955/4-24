@@ -1,0 +1,21 @@
+<% @book.each do | book | %>
+
+  <div>
+    <%= link_to book_path(book.id) do %>
+      <%= image_tag book.get_image %>
+    <% end %>
+  </div>
+  <div>
+ <p>Book detail</p>
+
+ <p><%= @book.user.name %></p>
+ <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
+ <p>title:<% @book.title %></p>
+ <p>body:<% @book.body %></P>
+
+ <% if @book.user == current_user %>
+    <%= link_to "Destroy", book_path(@book), method: :delete %>
+  <% end %>
+  
+<% end %>
+  </div>
