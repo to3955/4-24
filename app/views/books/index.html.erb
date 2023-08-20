@@ -1,20 +1,26 @@
+<h1>New book</h1>
+<%= form_with model: @book do |f| %>
+  
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+
 <% @books.each do |book| %>
 
-  <div>
-    <%= link_to book_path(book.id) do %>
-      <%= image_tag book.get_image %>
-    <% end %>
+<h2>title</h2>
 
- <p>Book detail</p>
+<p><%= book.title %></p>
 
- <p><%= @book.user.name %></p>
- <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
- <p>title:<% @book.title %></p>
- <p>body:<% @book.body %></P>
+<h2>Body</h2>
 
- <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
+<p><%= book.body %></p>
+
+<%= link_to "Edit", edit_book_path(book.id) %>
+
+<%= link_to "Back", books_path %>
 
 <% end %>
-  </div>
