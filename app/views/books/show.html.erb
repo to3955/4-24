@@ -1,34 +1,22 @@
-<p><%= @book.user.name %></p>
- <p>title:<% @book.title %></p>
- <p>body:<% @book.body %></P>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+      <div class="col-md-3">
+        <%= render 'books/list', user: @user, book: @book %>
+      </div>
+  <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= image_tag user.get_profile_image(100,100) %></th>
+      <th><%= book.title %></th>
+      <th><%= book.body %></th>
 
- <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
-  
-
-<h1>New book</h1>
-<%= form_with model: @book do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
-
-
-
-<% @books.each do |book| %>
-
-<h2>title</h2>
-
-<p><%= book.title %></p>
-
-<h2>Body</h2>
-
-<p><%= book.body %></p>
 
 <%= link_to "Edit", edit_book_path(book.id) %>
 <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
+
+    </tr>
+  </thead>
+    
