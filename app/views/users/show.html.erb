@@ -1,6 +1,7 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+   <p><%= link_to "プロフィール編集", edit_user_path%></p>
 </div>
 
 
@@ -11,5 +12,7 @@
   <p>ショップ名：<%= book.title %></p>
   <p>説明：<%= book.body %></p>
   
+  <%= link_to "Edit", edit_book_path(book.id) %>
+<%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 </div>
 <% end %>
