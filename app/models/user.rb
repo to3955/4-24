@@ -4,10 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached :image
   has_many :books, dependent: :destroy
 
   has_one_attached :profile_image
+
+  validates :name, presence: true, uniqueness: true, length: { in: 1..140 }
+  validates :introduction, length: {maximum: 50}
 
 
   def get_profile_image(width, height)
@@ -17,4 +19,8 @@ class User < ApplicationRecord
   end
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
+
+  
+
+
 end
