@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, presence: true, uniqueness: true, length: { in: 1..140 }
+  validates :name, presence: true, uniqueness: true, length: { in: 2..20 }
   validates :introduction, length: {maximum: 50}
 
 
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  
+
 
 
 end

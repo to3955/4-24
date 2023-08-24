@@ -23,7 +23,9 @@
     </tbody>
   </table>
     
-   <p><%= link_to "編集"  %></p>
+   <%= link_to edit_user_path(user), class: "btn btn btn-secondary text-white", method: :get do %>
+  <i class="fas fa-user-cog"></i>
+<% end %>
 
 
 

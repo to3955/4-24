@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -7,13 +11,18 @@
 
   <h4>Title</h4>
   <%= f.text_field :title %>
-  
+
   <h4>Opinion</h4>
   <%= f.text_area :body %>
-  
+
   <%= f.submit 'Update Book' %>
-  
-        <% end %>
-      </div>  
+
+  <% end %>
+
+  <%= link_to "Show", book_path(@book.id) %>
+
+  <%= link_to "Back", books_path %>
+
+      </div>
     </div>
- </div>    
+ </div>
