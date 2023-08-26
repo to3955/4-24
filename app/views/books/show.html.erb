@@ -10,21 +10,36 @@
   <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th></th>
-      <th><%= image_tag @book_new.user.get_profile_image(100,100) %></th>
-      <th><%= link_to book_path(@book_new.id) do %>
-        <%= @book_new.title %><% end %></th>
-      
-      <th><%= @book_new.body %></th>
-      <th><%= link_to "Edit", edit_book_path(@book_new.id), class: "btn btn-sm btn-success edit_book_98184" %></th>
-      <th><%= link_to "Destroy", book_path(@book_new.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger destroy_book_98184" %></th>
+        <tbody>
+          <tr>
 
-    </tr>
-  </thead>
-  </table>
+            <td><%= link_to user_path(@book_new.id) do %>
+                <%= image_tag @user.get_profile_image(80, 80) %>
+                <% end %><br>
+                <%= link_to user_path(@book_new.id) do %>
+                <%= @user.name %>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to book_path(@book_new.id) do %>
+                <%= @book_new.title %>
+                 <% end %>
+            </td>
+            <td><%= @book_new.body %></td>
+                <% if @book_new.user == current_user %>
+            <td><%= link_to "Edit", edit_book_path(@book_new.id), class: "btn btn-sm btn-success" %></td>
+            <td>
+                <%= link_to "Destroy", book_path(@book_new.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+            </td>
+                <% else %>
+                  <td></td>
+                  <td></td>
+           <% end %>
+
+
+          </tr>
+        </tbody>
+      </table>
   </div>
   </div>
   </div>
-    
