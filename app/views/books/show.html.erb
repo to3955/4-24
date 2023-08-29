@@ -26,6 +26,27 @@
                  <% end %>
             </td>
             <td><%= @book_new.body %></td>
+            
+             <td>いいね件数 : <%= @book_new.book_favorites.count %></td>
+               <% @book_new.book_favorites.each do |book_favorite| %>
+            <tr>
+              <td>コメント件数：<%= @book_new.book_comments.count %></td>
+                <% @book_new.book_comments.each do |book_comment| %>
+             <tr>
+              <td><%= image_tag book_comment.user.get_profile_image(100, 100) %></td>
+              <td><%= book_comment.user.name %></td>
+             </tr>
+            <% end %>
+             </tr>
+            <% end %>
+            
+              <td>
+                <%= form_with model: [@book_new, @book_comment] do |f| %>
+                <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+                <%= f.submit "送信する" %>
+              <% end %>
+              </td>
+
                 <% if @book_new.user == current_user %>
             <td><%= link_to "Edit", edit_book_path(@book_new.id), class: "btn btn-sm btn-success" %></td>
             <td>
@@ -35,7 +56,6 @@
                   <td></td>
                   <td></td>
            <% end %>
-
 
           </tr>
         </tbody>
