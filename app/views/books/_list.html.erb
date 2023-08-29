@@ -27,9 +27,9 @@
          <i class="fas fa-user-cog"></i>
          <% end %>
          </div>
-         
+
       <h1 class="mt-3">New book</h1>
-      
+
         <%= form_with model: book do |f| %>
 
         <h4>Title</h4>
@@ -38,5 +38,5 @@
         <%= f.text_area :body %>
         <%= f.submit 'Create Book' %>
       <% end %>
-      
+
 
