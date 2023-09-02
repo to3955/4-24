@@ -15,6 +15,18 @@ before_action :is_matching_login_user, only: [:update]
     @follower_users = @user.follower_users
   end
 
+  def follows
+  user = User.find(params[:id])
+  @users = user.following_users
+  end
+
+  def followers
+  user = User.find(params[:id])
+  @user = user.follower_users
+  end
+
+
+
   def edit
     @user = User.find(params[:id])
     if @user != current_user
@@ -32,17 +44,8 @@ before_action :is_matching_login_user, only: [:update]
   render :edit
  end
   end
-  
-  def follows
-  user = User.find(params[:id])
-  @users = user.following_users
-  end
-  
-  def followers
-  user = User.find(params[:id])
-  @user = user.follower_users
-  end
-  
+
+
    private
 
   def user_params
