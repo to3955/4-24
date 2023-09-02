@@ -1,4 +1,5 @@
 <h2>Follower Users</h2>
+<% if @users.exists? %>
 <table class='table'>
   <thead>
     <tr>
@@ -29,5 +30,8 @@
         </td>
       </tr>
     <% end %>
+  <% else %>
+  <p>ユーザーはいません</p>
+<% end %>
   </tbody>
 </table>
