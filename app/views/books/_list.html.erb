@@ -20,6 +20,8 @@
           <th>introduction</th>
           <th><%= user.introduction %></th>
           </tr>
+          <tr><%= render 'users/relationships', user: current_user %>
+          </tr>
           </tbody>
         </table>
          <div class="row">

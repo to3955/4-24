@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+ before_action :authenticate_user!
  before_action :is_matching_login_user, only: [:update]
 
   def create
@@ -15,6 +16,7 @@ class BooksController < ApplicationController
   end
 
   def index
+   
     @book = Book.new
     @books = Book.all
     @user = current_user
