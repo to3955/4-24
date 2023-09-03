@@ -1,5 +1,5 @@
-<h2>Follower Users</h2>
 <% if @users.exists? %>
+<h2>Follower Users</h2>
 <table class='table'>
   <thead>
     <tr>
@@ -7,10 +7,12 @@
       <th>name</th>
       <th></th>
       <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @user.each do |user| %>
+    <% @users.each do |user| %>
       <tr>
         <td>
           <%= link_to user_path(user) do %>
