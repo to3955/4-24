@@ -23,7 +23,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      
+
               <a class="navbar-brand text-light"href="/">
                 <span>Bookers</span>
               </a>
@@ -53,6 +53,8 @@
                  <i class="fas fa-sign-out-alt" aria-hidden="true"></i>Log out
                  <% end %>
               </li>
+
+
 
     <% else %>
 
@@ -85,6 +87,9 @@
     </div>
     </div>
   </header>
+           <div class="d-flex justify-content-center mb-2">
+              <%= render 'searches/search' %>
+           </div>
 
     <%= yield %>
 
