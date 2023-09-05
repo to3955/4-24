@@ -38,11 +38,11 @@
           </tr>
         </tbody>
       </table>
-           <div id="post-comments">
-            <%= render "book_comment/index", book: @book %>
+           <div id="book_comment">
+            <%= render "book_comments/index", book: @book, book_comment: @book_comment %>
            </div>
            <div id="comment-form">
-            <%= render "book_comment/form", book: @book, book_comment: @book_comment %>
+            <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
           </div>
      </div>
    </div>
