@@ -28,6 +28,9 @@ class BooksController < ApplicationController
    @book = Book.find(params[:id])
    @user = @book.user
    @book_comment = BookComment.new
+   unless LookCount.find_by(user_id: current_user.id, book_id: @book.id)
+      current_user.look_counts.create(book_id: @book.id)
+   end
   end
 
   def edit
