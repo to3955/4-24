@@ -22,15 +22,12 @@ before_action :is_matching_login_user, only: [:update]
   end
 
   def follows
-
   @user = User.find(params[:id])
   @users = @user.following_users
   end
 
   def followers
-
   @user = User.find(params[:id])
-
   @users = @user.follower_users
   end
 
