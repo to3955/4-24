@@ -18,6 +18,8 @@ resources :users do
       get :follows, :followers
     end
       resource :relationships, only: [:create, :destroy]
-  end
+    
+    get "search" => "users#search"
+    end
 
 end
