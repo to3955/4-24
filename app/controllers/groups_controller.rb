@@ -1,12 +1,12 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  
-  
+
+
   def new
     @group = Group.new
   end
-  
+
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
@@ -16,12 +16,13 @@ class GroupsController < ApplicationController
       render :new
     end
   end
-  
+
 
   def index
     @book = Book.new
     @groups = Group.all
     @user = User.find(current_user.id)
+    @group = Group.find
   end
 
   def show
@@ -33,7 +34,7 @@ class GroupsController < ApplicationController
   def edit
      @group = Group.find(params[:id])
   end
-  
+
   def update
     if @group.update(group_params)
       redirect_to groups_path
@@ -41,7 +42,7 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
-  
+
   private
 
     def group_params
@@ -54,6 +55,6 @@ class GroupsController < ApplicationController
         redirect_to groups_path
       end
     end
-  
-  
+
+
 end
