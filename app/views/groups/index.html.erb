@@ -10,7 +10,7 @@
       <%= render 'index', groups: @groups %>
     </div>
 
-    <div><%= @group.users.count %></div>
+    <div><%= @groups.map { |group| group.users.count }.sum %></div>
 
   </div>
 </div>
